@@ -16,7 +16,7 @@ int minCoinChange(vector<int> &coins, int amount)
             }
             else
             {
-                dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - x]);
+                dp[i][j] = min(dp[i - 1][j], 1 + dp[i - 1][j - x]);
             }
         }
     }
