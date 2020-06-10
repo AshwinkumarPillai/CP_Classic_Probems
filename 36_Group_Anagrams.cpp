@@ -1,25 +1,18 @@
 // Given an array of strings group all the anagram strings together.
 
-vector<vector<string>> groupAnagrams(vector<string> &s)
+vector<vector<string>> groupAnagrams(vector<string> &strs)
 {
-    vector<vector<string>> ans;
-    unordered_map<string, vector<int>> m;
-    int n = s.size();
-    for (int i = 0; i < n; i++)
+    unordered_map<string, vector<string>> anag;
+    vector<vector<string>> result;
+    for (string str : strs)
     {
-        string x = s[i];
-        sort(x.begin(), x.end());
-        m[x].emplace_back(i);
+        string s = str;
+        sort(s.begin(), s.end());
+        anag[s].emplace_back(str);
     }
-
-    for (auto p : m)
+    for (auto s : anag)
     {
-        vector<string> sub;
-        for (int x : p.second)
-        {
-            sub.emplace_back(s[x]);
-        }
-        ans.push_back(sub);
+        result.emplace_back(s.second);
     }
-    return ans;
+    return result;
 }
