@@ -13,11 +13,11 @@ void RemoveNode(Node *head, int k)
         second = second->next;
         first = first->next;
     }
-    if (first == head)
+    if (second == head)
     {
-        head = first->next;
+        head = second->next;
         return;
     }
-    first->val = first->next->val;
-    first->next = first->next->next;
+    second->val = second->next->val;
+    second->next = second->next->next;
 }
